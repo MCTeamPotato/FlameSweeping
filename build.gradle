@@ -20,11 +20,10 @@ version = '0.0.1'
 group = 'com.teampotato.flamesweeping'
 archivesBaseName = 'flamesweeping'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'parchment', version: '2021.10.17-1.16.5'
-    //accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    mappings channel: 'parchment', version: '2022.08.07-1.18.2'
     runs {
         client {
             workingDirectory project.file('run')
@@ -68,7 +67,7 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.2.39'
+    minecraft 'net.minecraftforge:forge:1.18.2-40.2.9'
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
