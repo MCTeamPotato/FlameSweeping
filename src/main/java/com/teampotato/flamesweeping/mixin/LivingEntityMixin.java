@@ -1,5 +1,6 @@
 package com.teampotato.flamesweeping.mixin;
 
+import com.teampotato.flamesweeping.api.ExtendedCombatTracker;
 import net.minecraft.world.damagesource.CombatTracker;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -20,7 +21,7 @@ public abstract class LivingEntityMixin {
         Entity sourceEntity = source.getEntity();
         if (sourceEntity instanceof LivingEntity && source.getDirectEntity() != null) {
             int aspect = EnchantmentHelper.getFireAspect((LivingEntity) sourceEntity);
-            LivingEntity mob = getCombatTracker().getMob();
+            LivingEntity mob = ((ExtendedCombatTracker)this.getCombatTracker()).flameSweeping$getMob();
             if (mob.isAlive() && aspect > 0 && !mob.isOnFire()) mob.setSecondsOnFire(4 * aspect);
         }
     }
